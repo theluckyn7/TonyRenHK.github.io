@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="036nsNgxuH68xUABF8jrgg8Xzsti4FN8eKjWvA185C4">
+  <meta name="baidu-site-verification" content="FQRuGMvxtv">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+
+  
+  <title>SFDX 常用命令以及相关资料 | 呆呆&#39;s blog</title>
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="呆呆's blog">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico">
+  <link rel="icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico">
+  
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+  
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href="//cdn.bootcss.com/node-waves/0.7.5/waves.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1382646259212001",
+    enable_page_level_ads: true
+  });
+</script>
+
+</head>
+</html>
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href="/">呆呆's blog</a>
+				<div class="menu">
+					<ul class="h-list">
+            
+    					
+    						<li>
+    							<a class="nav  flat-box" href="/">
+    								<i class="fas fa-home fa-fw"></i>&nbsp;主页
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/archives/">
+    								<i class="fas fa-archive fa-fw"></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav current flat-box" href="/Project">
+    								<i class="fas fa-flask fa-fw"></i>&nbsp;项目
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/about/">
+    								<i class="fas fa-user fa-fw"></i>&nbsp;关于
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="https://renchk.github.io">
+    								<i class="fas fa-globe fa-fw"></i>&nbsp;English
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class="underline"></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search">
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="fas fa-comments fa-fw" href="javascript:void(0)"></a></li>
+				<li class="s-top"><a class="fas fa-arrow-circle-up fa-fw" href="javascript:void(0)"></a></li>
+				<li class="s-toc"><a class="fas fa-list fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class="fas fa-home fa-fw"></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives/">
+											<i class="fas fa-archive fa-fw"></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav current flat-box" href="/Project">
+											<i class="fas fa-flask fa-fw"></i>&nbsp;项目
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/about/">
+											<i class="fas fa-user fa-fw"></i>&nbsp;关于
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="https://renchk.github.io">
+											<i class="fas fa-globe fa-fw"></i>&nbsp;English
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post-" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class="meta">
+        
+            <h1 class="title">SFDX 常用命令以及相关资料</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2019-01-02
+        </time>
+        <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+        
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>preview</p>
+<a id="more"></a>
+<p><img src="/images/LightningFlow/6.png" alt="alt tag"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><a href="https://wx.qq.com/" target="_blank" rel="noopener">微信网页版</a></th>
+<th style="text-align:center"><a href="https://bitbucket.org/" target="_blank" rel="noopener">Bitbucket</a></th>
+<th style="text-align:right"><a href="https://note.youdao.com/web/" target="_blank" rel="noopener">有道笔记</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="https://trailhead.salesforce.com/en/home" target="_blank" rel="noopener">Trailhead</a></td>
+<td style="text-align:center"><a href="http://dict.youdao.com/" target="_blank" rel="noopener">有道首页</a></td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h1 id="Dillinger"><a href="#Dillinger" class="headerlink" title="Dillinger"></a>Dillinger</h1><p>222</p>
+<p><img src="https://cldup.com/dTxpPi9lDf.thumb.png" alt="icon"> </p>
+<p>111</p>
+<p><a href="https://nodesource.com/products/nsolid" target="_blank" rel="noopener"><img src="https://cldup.com/dTxpPi9lDf.thumb.png" alt="N|Solid"></a></p>
+<p><a href="https://travis-ci.org/joemccann/dillinger" target="_blank" rel="noopener"><img src="https://travis-ci.org/joemccann/dillinger.svg?branch=master" alt="Build Status"></a></p>
+<p>Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.</p>
+<ul>
+<li>Type some Markdown on the left</li>
+<li>See HTML in the right</li>
+<li>Magic</li>
+</ul>
+<h1 id="New-Features"><a href="#New-Features" class="headerlink" title="New Features!"></a>New Features!</h1><ul>
+<li>Import a HTML file and watch it magically convert to Markdown</li>
+<li>Drag and drop images (requires your Dropbox account be linked)</li>
+</ul>
+<p>You can also:</p>
+<ul>
+<li>Import and save files from GitHub, Dropbox, Google Drive and One Drive</li>
+<li>Drag and drop markdown and HTML files into Dillinger</li>
+<li>Export documents as Markdown, HTML and PDF</li>
+</ul>
+<p>Markdown is a lightweight markup language based on the formatting conventions that people naturally use in email.  As <a href="http://daringfireball.net" target="_blank" rel="noopener">John Gruber</a> writes on the <a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="noopener">Markdown site</a></p>
+<blockquote>
+<p>Aura components can contain Lightning web components. However, the opposite doesn’t apply. Lightning web components can’t contain Aura components.<br>formatting syntax is to make it as readable<br>as possible. The idea is that a<br>Markdown-formatted document should be<br>publishable as-is, as plain text, without<br>looking like it’s been marked up with tags<br>or formatting instructions.</p>
+</blockquote>
+<p>This text you see here is <em>actually</em> written in Markdown! To get a feel for Markdown’s syntax, type some text into the left window and watch the results in the right.</p>
+<h3 id="Tech"><a href="#Tech" class="headerlink" title="Tech"></a>Tech</h3><p>Dillinger uses a number of open source projects to work properly:</p>
+<ul>
+<li><a href="http://angularjs.org" target="_blank" rel="noopener">AngularJS</a> - HTML enhanced for web apps!</li>
+<li><a href="http://ace.ajax.org" target="_blank" rel="noopener">Ace Editor</a> - awesome web-based text editor</li>
+<li><a href="https://github.com/markdown-it/markdown-it" target="_blank" rel="noopener">markdown-it</a> - Markdown parser done right. Fast and easy to extend.</li>
+<li><a href="http://twitter.github.com/bootstrap/" target="_blank" rel="noopener">Twitter Bootstrap</a> - great UI boilerplate for modern web apps</li>
+<li><a href="http://nodejs.org" target="_blank" rel="noopener">node.js</a> - evented I/O for the backend</li>
+<li><a href="http://expressjs.com" target="_blank" rel="noopener">Express</a> - fast node.js network app framework <a href="http://twitter.com/tjholowaychuk" target="_blank" rel="noopener">@tjholowaychuk</a></li>
+<li><a href="http://gulpjs.com" target="_blank" rel="noopener">Gulp</a> - the streaming build system</li>
+<li><a href="http://breakdance.io" target="_blank" rel="noopener">Breakdance</a> - HTML to Markdown converter</li>
+<li><a href="http://jquery.com" target="_blank" rel="noopener">jQuery</a> - duh</li>
+</ul>
+<p>And of course Dillinger itself is open source with a <a href="https://github.com/joemccann/dillinger" target="_blank" rel="noopener">public repository</a><br> on GitHub.</p>
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>Dillinger requires <a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a> v4+ to run.</p>
+<p>Install the dependencies and devDependencies and start the server.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> dillinger</span><br><span class="line">$ npm install -d</span><br><span class="line">$ node app</span><br></pre></td></tr></table></figure>
+<p>For production environments…</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --production</span><br><span class="line">$ NODE_ENV=production node app</span><br></pre></td></tr></table></figure>
+<h3 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h3><p>Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.</p>
+<table>
+<thead>
+<tr>
+<th>Plugin</th>
+<th>README</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dropbox</td>
+<td><a href="https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md" target="_blank" rel="noopener">plugins/dropbox/README.md</a></td>
+</tr>
+<tr>
+<td>Github</td>
+<td><a href="https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md" target="_blank" rel="noopener">plugins/github/README.md</a></td>
+</tr>
+<tr>
+<td>Google Drive</td>
+<td><a href="https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md" target="_blank" rel="noopener">plugins/googledrive/README.md</a></td>
+</tr>
+<tr>
+<td>OneDrive</td>
+<td><a href="https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md" target="_blank" rel="noopener">plugins/onedrive/README.md</a></td>
+</tr>
+<tr>
+<td>Medium</td>
+<td><a href="https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md" target="_blank" rel="noopener">plugins/medium/README.md</a></td>
+</tr>
+<tr>
+<td>Google Analytics</td>
+<td><a href="https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md" target="_blank" rel="noopener">plugins/googleanalytics/README.md</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Development"><a href="#Development" class="headerlink" title="Development"></a>Development</h3><p>Want to contribute? Great!</p>
+<p>Dillinger uses Gulp + Webpack for fast developing.<br>Make a change in your file and instantanously see your updates!</p>
+<p>Open your favorite Terminal and run these commands.</p>
+<p>First Tab:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node app</span><br></pre></td></tr></table></figure></p>
+<p>Second Tab:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gulp watch</span><br></pre></td></tr></table></figure></p>
+<p>(optional) Third:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ karma <span class="built_in">test</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Building-for-source"><a href="#Building-for-source" class="headerlink" title="Building for source"></a>Building for source</h4><p>For production release:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gulp build --prod</span><br></pre></td></tr></table></figure></p>
+<p>Generating pre-built zip archives for distribution:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gulp build dist --prod</span><br></pre></td></tr></table></figure></p>
+<h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><p>Dillinger is very easy to install and deploy in a Docker container.</p>
+<p>By default, the Docker will expose port 8080, so change this within the Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> dillinger</span><br><span class="line">docker build -t joemccann/dillinger:<span class="variable">$&#123;package.json.version&#125;</span> .</span><br></pre></td></tr></table></figure>
+<p>This will create the dillinger image and pull in the necessary dependencies. Be sure to swap out <code>${package.json.version}</code> with the actual version of Dillinger.</p>
+<p>Once done, run the Docker image and map the port to whatever you wish on your host. In this example, we simply map port 8000 of the host to port 8080 of the Docker (or whatever port was exposed in the Dockerfile):</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8000:8080 --restart=<span class="string">"always"</span> &lt;youruser&gt;/dillinger:<span class="variable">$&#123;package.json.version&#125;</span></span><br></pre></td></tr></table></figure>
+<p>Verify the deployment by navigating to your server address in your preferred browser.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:8000</span><br></pre></td></tr></table></figure>
+<h4 id="Kubernetes-Google-Cloud"><a href="#Kubernetes-Google-Cloud" class="headerlink" title="Kubernetes + Google Cloud"></a>Kubernetes + Google Cloud</h4><p>See <a href="https://github.com/joemccann/dillinger/blob/master/KUBERNETES.md" target="_blank" rel="noopener">KUBERNETES.md</a></p>
+<h3 id="Todos"><a href="#Todos" class="headerlink" title="Todos"></a>Todos</h3><ul>
+<li>Write MORE Tests</li>
+<li>Add Night Mode</li>
+</ul>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>MIT</p>
+<p><strong>Free Software, Hell Yeah!</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th style="text-align:center">Are</th>
+<th style="text-align:right">Cool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>col 1 is</td>
+<td style="text-align:center">left-aligned</td>
+<td style="text-align:right">$1600</td>
+</tr>
+<tr>
+<td>col 2 is</td>
+<td style="text-align:center">centered</td>
+<td style="text-align:right">$12</td>
+</tr>
+<tr>
+<td>col 3 is</td>
+<td style="text-align:center">right-aligned</td>
+<td style="text-align:right">$1</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        <section class="meta">
+            <time class="time" itemprop="dateUpdated" datetime="2019-04-11T17:59:18+08:00" content="2019-04-11">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2019-04-11
+            </time>
+            
+        </section>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
+
+
+        
+
+    </section>
+
+</article>
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+
+            
+
+            
+
+                
+
+                
+
+                
+                    
+                        <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+                        <div class="subtitle">
+                          <h6>为了便于区分和接收回复提醒，请您在留言时填写一下<b>昵称</b>和<b>邮箱</b>
+                          </h6>
+                        <div>
+                        <section id="comments">
+                            <div id="valine_container" class="valine_thread">
+                                <i class="fas fa-spinner fa-spin fa-fw"></i>
+                            </div>
+                        </section>
+                        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+                        <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+                    
+                
+            
+
+        </div></div></section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: 'SFDX 常用命令以及相关资料',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+    
+        
+  <section class="m_widget author">
+    
+      <div class="header">
+        <img class="avatar" src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Me2.jpg">
+      </div>
+    
+    
+      <div class="content">
+        
+          <h2>呆呆&#39;s blog</h2>
+        
+        
+          <p>好学近乎知，力行近乎仁，知耻近乎勇</p>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:renchk@foxmail.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/TonyRenHK" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.linkedin.com/in/tony-ren-hk/" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-linkedin" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.weibo.com/6476367461" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.youtube.com/channel/UCYKaW0KfHSuKw2SpqebLqeQ" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-youtube" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://tonyrenhk.github.io/Wechat/" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weixin" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </section>
+
+
+    
+    
+        <section class="m_widget links">
+    <div class="content pure">
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/BookMark.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/BookMark.html">
+                    
+                    <div class="name">
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/IMG_2568.JPG">
+                        
+                        &nbsp;&nbsp;书签BookMark
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/OnlineTools.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/OnlineTools.html">
+                    
+                    <div class="name">
+                        
+                            <img src="http://tonyrenhk.github.io/images/notebook.png">
+                        
+                        &nbsp;&nbsp;工具Tools
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/Tutorial.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/Tutorial.html">
+                    
+                    <div class="name">
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Astro_Trailblazer_hoodie_wave.png">
+                        
+                        &nbsp;&nbsp;教程Tutorial
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/">
+                    
+                    <div class="name">
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/s.png">
+                        
+                        &nbsp;&nbsp;Git
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+    
+        <section class="m_widget categories">
+    <header class="header pure">
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class="content pure">
+        
+            <ul class="entry">
+                
+                    <li><a class="flat-box" href="/categories/Git/"><div class="name">Git</div><div class="badge">2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Google/"><div class="name">Google</div><div class="badge">2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/JS/"><div class="name">JS</div><div class="badge">1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/JavaScript/"><div class="name">JavaScript</div><div class="badge">1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Python/"><div class="name">Python</div><div class="badge">1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Salesforce/"><div class="name">Salesforce</div><div class="badge">16</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Tools/"><div class="name">Tools</div><div class="badge">1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/hexo/"><div class="name">hexo</div><div class="badge">1</div></a></li>
+                
+            </ul>
+        
+    </div>
+</section>
+
+    
+    
+        
+    <section class="m_widget tagcloud">
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class="content pure">
+            <a href="/tags/Apex/" style="font-size: 15.67px; color: #8e8e8e">Apex</a> <a href="/tags/Chrome-Extension/" style="font-size: 14px; color: #999">Chrome-Extension</a> <a href="/tags/Community-Cloud/" style="font-size: 14px; color: #999">Community Cloud</a> <a href="/tags/Demo/" style="font-size: 14px; color: #999">Demo</a> <a href="/tags/Git/" style="font-size: 17.33px; color: #828282">Git</a> <a href="/tags/Google/" style="font-size: 14px; color: #999">Google</a> <a href="/tags/Google-App-Script/" style="font-size: 14px; color: #999">Google App Script</a> <a href="/tags/JavaScript/" style="font-size: 15.67px; color: #8e8e8e">JavaScript</a> <a href="/tags/Jsforce/" style="font-size: 14px; color: #999">Jsforce</a> <a href="/tags/LWC/" style="font-size: 19px; color: #777">LWC</a> <a href="/tags/Lightning/" style="font-size: 15.67px; color: #8e8e8e">Lightning</a> <a href="/tags/Lightning-Components/" style="font-size: 14px; color: #999">Lightning Components</a> <a href="/tags/Lightning-Web-Components/" style="font-size: 17.33px; color: #828282">Lightning Web Components</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/Quip/" style="font-size: 14px; color: #999">Quip</a> <a href="/tags/SFDX/" style="font-size: 17.33px; color: #828282">SFDX</a> <a href="/tags/Salesforce/" style="font-size: 24px; color: #555">Salesforce</a> <a href="/tags/Script/" style="font-size: 14px; color: #999">Script</a> <a href="/tags/Superbadge/" style="font-size: 14px; color: #999">Superbadge</a> <a href="/tags/Tools/" style="font-size: 14px; color: #999">Tools</a> <a href="/tags/Trailhead/" style="font-size: 22.33px; color: #606060">Trailhead</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/hexo-theme-doc/" style="font-size: 14px; color: #999">hexo-theme-doc</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/shortcut/" style="font-size: 14px; color: #999">shortcut</a> <a href="/tags/入门/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/对Campaign/" style="font-size: 14px; color: #999">对Campaign</a> <a href="/tags/开发者II考试/" style="font-size: 20.67px; color: #6c6c6c">开发者II考试</a> <a href="/tags/自动/" style="font-size: 14px; color: #999">自动</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+    <section class="m_widget toc-wrapper">
+        <header class="header pure">
+            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class="wrapper"><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+        </header>
+        <div class="content pure">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Dillinger"><span class="toc-text">Dillinger</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#New-Features"><span class="toc-text">New Features!</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tech"><span class="toc-text">Tech</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Installation"><span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Plugins"><span class="toc-text">Plugins</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Development"><span class="toc-text">Development</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Building-for-source"><span class="toc-text">Building for source</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker"><span class="toc-text">Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Kubernetes-Google-Cloud"><span class="toc-text">Kubernetes + Google Cloud</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Todos"><span class="toc-text">Todos</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#License"><span class="toc-text">License</span></a></li></ol>
+        </div>
+    </section>
+
+
+    
+    
+        <section class="m_widget links">
+    <header class="header pure">
+        <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;更多</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:me@xaoxuu.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【呆呆&#39;s blog】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class="content pure">
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://xaoxuu.com/blog" target="_blank" rel="external nofollow noopener noreferrer" href="https://xaoxuu.com/blog">
+                    
+                        
+                    
+                        
+                    <div class="name">
+                        
+                            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicons/favicon-32x32.png">
+                        
+                        &nbsp;&nbsp;xaoxuu&#39;s blog
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://www.wushile.top/" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.wushile.top/">
+                    
+                        
+                    
+                        
+                    <div class="name">
+                        
+                            <img src="https://img.vim-cn.com/44/a0e41f98005881db95c69540bd44141135d005.png">
+                        
+                        &nbsp;&nbsp;小吴博客
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:renchk@foxmail.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/TonyRenHK" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://www.linkedin.com/in/tony-ren-hk/" class="social fab fa-linkedin flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://www.weibo.com/6476367461" class="social fab fa-weibo flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://www.youtube.com/channel/UCYKaW0KfHSuKw2SpqebLqeQ" class="social fab fa-youtube flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://tonyrenhk.github.io/Wechat/" class="social fab fa-weixin flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+    
+<span id="runtime_span"></span>
+
+<script type="text/javascript">
+function show_runtime(){
+  window.setTimeout("show_runtime()",1000);
+  X=new Date("8/22/2016 18:27:0");
+  Y=new Date();T=(Y.getTime()-X.getTime());M=24*60*60*1000;
+  a=T/M;A=Math.floor(a);
+  b=(a-A)*24;B=Math.floor(b);
+  c=(b-B)*60;C=Math.floor((b-B)*60);
+  D=Math.floor((c-C)*60);
+  runtime_span.innerHTML="—— 本站已稳定运行： "+A+"天"+B+"小时"+C+"分"+D+"秒 ——"}show_runtime();
+
+</script>
+
+
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/node-waves/0.7.5/waves.min.js"></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bfb78723c9c4600"></script>
+
+
+<script src="/js/jquery.fitvids.js"></script>
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+<script src="/js/search.js"></script>
+<script src="/js/app.js"></script>
+
+
+    
+    
+    
+        
+            <script>
+            var GUEST_INFO = ['nick','mail','link'];
+            var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+                return GUEST_INFO.indexOf(item) > -1
+            });
+            var notify = 'false' == true;
+            var verify = 'false' == true;
+            var valine = new Valine();
+            valine.init({
+                el: '#valine_container',
+                notify: notify,
+                verify: verify,
+                guest_info: guest_info,
+                appId: "VuRGmlrXY64EG2tySasn4jzF-gzGzoHsz",
+                appKey: "C2FxxmSPGwKNQl7PEg39s7ep",
+                placeholder: "Comment here~",
+                pageSize:'10',
+                avatar:'mp',
+                lang:'zh-cn',
+                highlight:''
+            })
+            </script>
+        
+    
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
