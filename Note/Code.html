@@ -8,7 +8,7 @@
   
 
   
-  <title>Archives: 2018/12 | 呆呆&#39;s blog</title>
+  <title>Code | 呆呆&#39;s blog</title>
   
   <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -161,174 +161,70 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
+            <article id="page-" class="post white-box article-type-page" itemscope itemprop="blogPost">
+    <section class="meta">
+        
+            <h1 class="title">Code</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2008-12-06
+        </time>
+        <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+        
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">trigger accountTestTrggr on <span class="title">Account</span> <span class="params">(before insert, before update)</span> </span>&#123;</span><br><span class="line">	  </span><br><span class="line">   <span class="comment">//For loop to iterate through all the incoming Account records</span></span><br><span class="line">   <span class="keyword">for</span>(Account a: Trigger.new) &#123;</span><br><span class="line">      	  </span><br><span class="line">      <span class="comment">//THIS FOLLOWING QUERY IS INEFFICIENT AND DOESN'T SCALE</span></span><br><span class="line">      <span class="comment">//Since the SOQL Query for related Contacts is within the FOR loop, if this trigger is initiated </span></span><br><span class="line">      <span class="comment">//with more than 100 records, the trigger will exceed the trigger governor limit</span></span><br><span class="line">      <span class="comment">//of maximum 100 SOQL Queries.</span></span><br><span class="line">      	  </span><br><span class="line">      List&lt;Contact&gt; contacts = [select id, salutation, firstname, lastname, email </span><br><span class="line">                        from Contact where accountId = :a.Id];</span><br><span class="line"> 		  </span><br><span class="line">      <span class="keyword">for</span>(Contact c: contacts) &#123;</span><br><span class="line">         System.debug(<span class="string">'Contact Id['</span> + c.Id + <span class="string">'], FirstName['</span> + c.firstname + <span class="string">'], </span></span><br><span class="line"><span class="string">                                         LastName['</span> + c.lastname +<span class="string">']'</span>);</span><br><span class="line">         c.Description=c.salutation + <span class="string">' '</span> + c.firstName + <span class="string">' '</span> + c.lastname;</span><br><span class="line"> 	  	   </span><br><span class="line">         <span class="comment">//THIS FOLLOWING DML STATEMENT IS INEFFICIENT AND DOESN'T SCALE</span></span><br><span class="line">         <span class="comment">//Since the UPDATE dml operation is within the FOR loop, if this trigger is initiated </span></span><br><span class="line">         <span class="comment">//with more than 150 records, the trigger will exceed the trigger governor limit </span></span><br><span class="line">         <span class="comment">//of 150 DML Operations maximum.</span></span><br><span class="line">      	                  	      </span><br><span class="line">         update c;</span><br><span class="line">      &#125;    	  </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <section class="meta">
+            <time class="time" itemprop="dateUpdated" datetime="2019-04-14T21:14:05+08:00" content="2019-04-14">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2019-04-14
+            </time>
             
-	
-    <script>
-        window.subData= { title:'year : 2018.12'}
-    </script>
+        </section>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
 
 
-<section class="post-list">
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/22/2018-12-22-Lightning-Components-Basics/">
-                
-                    Trailhead学习:Lightning Components Basics
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-22
-        </time>
         
-    
-    <div class="cats">
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/Salesforce/">Salesforce</a>
-    </div>
-
 
     </section>
 
-    <section class="article typo">
-        <p>【Trailhead学习】开发者2考试解锁之路：”Lightning组件框架专家”(Lightning Component Framework Specialist Superbadge)之Lightning Components Basics 。</p>
-        
-            <div class="readmore">
-                <a href="/2018/12/22/2018-12-22-Lightning-Components-Basics/" class="flat-box">
-                    <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-                    阅读全文
-                </a>
-            </div>
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/Salesforce/"><i class="fas fa-tag fa-fw"></i>&nbsp;Salesforce</a>
-                
-                    <a href="/tags/Trailhead/"><i class="fas fa-tag fa-fw"></i>&nbsp;Trailhead</a>
-                
-                    <a href="/tags/开发者II考试/"><i class="fas fa-tag fa-fw"></i>&nbsp;开发者II考试</a>
-                
-            </div>
-        
-    </section>
 </article>
 
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/21/2018-12-21-Lightning-Experience-Development/">
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
                 
-                    Trailhead学习:解锁Lightning Experience Development
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-21
-        </time>
-        
-    
-    <div class="cats">
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/Salesforce/">Salesforce</a>
-    </div>
 
 
-    </section>
+            
 
-    <section class="article typo">
-        <p>【Trailhead学习】开发者2考试解锁之路：”Lightning组件框架专家”(Lightning Component Framework Specialist Superbadge)之Lightning Experience Development 。</p>
-        
-            <div class="readmore">
-                <a href="/2018/12/21/2018-12-21-Lightning-Experience-Development/" class="flat-box">
-                    <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-                    阅读全文
-                </a>
-            </div>
-        
+            
 
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/Salesforce/"><i class="fas fa-tag fa-fw"></i>&nbsp;Salesforce</a>
-                
-                    <a href="/tags/Lightning/"><i class="fas fa-tag fa-fw"></i>&nbsp;Lightning</a>
-                
-                    <a href="/tags/Trailhead/"><i class="fas fa-tag fa-fw"></i>&nbsp;Trailhead</a>
-                
-                    <a href="/tags/开发者II考试/"><i class="fas fa-tag fa-fw"></i>&nbsp;开发者II考试</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/05/2018-12-05-Data-Integration-Specialist-Superbadge/">
-                
-                    Trailhead学习:Data Integration Specialist Superbadge
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-05
-        </time>
-        
-    
-    <div class="cats">
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/Salesforce/">Salesforce</a>
-    </div>
+        </section>
+    </article>
 
 
-    </section>
-
-    <section class="article typo">
-        <p>Trailhead学习：Data Integration Specialist Superbadge</p>
-        
-            <div class="readmore">
-                <a href="/2018/12/05/2018-12-05-Data-Integration-Specialist-Superbadge/" class="flat-box">
-                    <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-                    阅读全文
-                </a>
-            </div>
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/Salesforce/"><i class="fas fa-tag fa-fw"></i>&nbsp;Salesforce</a>
-                
-                    <a href="/tags/Trailhead/"><i class="fas fa-tag fa-fw"></i>&nbsp;Trailhead</a>
-                
-                    <a href="/tags/开发者II考试/"><i class="fas fa-tag fa-fw"></i>&nbsp;开发者II考试</a>
-                
-                    <a href="/tags/Superbadge/"><i class="fas fa-tag fa-fw"></i>&nbsp;Superbadge</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-</section>
-
-
-
-
+<script>
+    window.subData = {
+        title: 'Code',
+        tools: true
+    }
+</script>
 
         </div>
         <aside class='l_side'>
