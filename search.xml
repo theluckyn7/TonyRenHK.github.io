@@ -331,9 +331,9 @@
       
         <tags>
             
-            <tag> Git </tag>
-            
             <tag> Salesforce </tag>
+            
+            <tag> Git </tag>
             
             <tag> LWC </tag>
             
@@ -393,11 +393,11 @@
             
             <tag> Salesforce </tag>
             
+            <tag> Lightning </tag>
+            
             <tag> Trailhead </tag>
             
             <tag> 开发者II考试 </tag>
-            
-            <tag> Lightning </tag>
             
         </tags>
       
@@ -424,11 +424,11 @@
             
             <tag> Salesforce </tag>
             
-            <tag> Superbadge </tag>
-            
             <tag> Trailhead </tag>
             
             <tag> 开发者II考试 </tag>
+            
+            <tag> Superbadge </tag>
             
         </tags>
       
@@ -482,38 +482,11 @@
             
             <tag> Salesforce </tag>
             
+            <tag> Lightning </tag>
+            
             <tag> Trailhead </tag>
             
             <tag> 开发者II考试 </tag>
-            
-            <tag> Lightning </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>全民K歌小外挂：自动评论插件</title>
-      <link href="/2018/11/25/2018-11-25-WesingPlugins/"/>
-      <url>/2018/11/25/2018-11-25-WesingPlugins/</url>
-      
-        <content type="html"><![CDATA[<p>全民K歌自动评论插件实现自动刷分，自动升级。再也不用手动刷评论了。</p><a id="more"></a><h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>全民K歌每评论一次，可以让对方积分分数增加，由于人手手动评论过于费事，所以用了Python自动评论实现自动刷分。这里需要在PC端安装Python和全民K歌桌面版。同时安装pyautogui库。</p><h2 id="导入函数"><a href="#导入函数" class="headerlink" title="导入函数"></a>导入函数</h2><p>导入函数</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyautogui, sys </span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time </span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br></pre></td></tr></table></figure><h2 id="设置评论内容"><a href="#设置评论内容" class="headerlink" title="设置评论内容"></a>设置评论内容</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CommentList = [<span class="string">'Good!!!'</span>, <span class="string">'Nice'</span>, <span class="string">'Wonderful！！！'</span>,<span class="string">'[em]e7150[/em][em]e7150[/em][em]e7150[/em]'</span>, </span><br><span class="line"></span><br><span class="line">               <span class="string">'Name[em]e179[/em][em]e179[/em][em]e179[/em][em]e179[/em]'</span>, </span><br><span class="line"></span><br><span class="line">               <span class="string">'[em]e163[/em][em]e163[/em][em]e163[/em]'</span>, </span><br><span class="line"></span><br><span class="line">               <span class="string">'[em]e7054[/em][em]e7054[/em][em]e7054[/em][em]e7054[/em]'</span>, </span><br><span class="line"></span><br><span class="line">               <span class="string">'[em]e7038[/em][em]e7038[/em][em]e7038[/em]！！！'</span>, </span><br><span class="line"></span><br><span class="line">               <span class="string">'Good!!!Wonderful!'</span>, <span class="string">'[em]e142[/em]！！[em]e142[/em]！'</span>]</span><br></pre></td></tr></table></figure><h2 id="刷评论"><a href="#刷评论" class="headerlink" title="刷评论"></a>刷评论</h2><p>设置循环一千次刷评论。注意这里moveTo是鼠标在屏幕中的位置，可以调整。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">1000</span>): </span><br><span class="line"></span><br><span class="line">    pyautogui.moveTo( <span class="number">1200</span>, <span class="number">340</span>, <span class="number">2</span>) </span><br><span class="line">    pyautogui.click() </span><br><span class="line">    pyautogui.typewrite(CommentList[randint(<span class="number">0</span>, <span class="number">9</span>)]) </span><br><span class="line">    pyautogui.press(<span class="string">'enter'</span>) </span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br></pre></td></tr></table></figure><p>由于全民K歌不能不间断一直评论，所以加了睡眠3秒的等待时间，系统会等3秒之后继续评论。就这样，我们轻轻松松把全民K歌等级推上了17级。</p><p> <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Website/webwxgetmsgimg.jpg" height="260" width="416"></p><p>同样原理，可以实现各种刷评论功能。本方法只用于学习用途。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Python </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 自动 </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -541,6 +514,33 @@
             <tag> Apex </tag>
             
             <tag> Salesforce </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>全民K歌小外挂：自动评论插件</title>
+      <link href="/2018/11/25/2018-11-25-WesingPlugins/"/>
+      <url>/2018/11/25/2018-11-25-WesingPlugins/</url>
+      
+        <content type="html"><![CDATA[<p>全民K歌自动评论插件实现自动刷分，自动升级。再也不用手动刷评论了。</p><a id="more"></a><h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>全民K歌每评论一次，可以让对方积分分数增加，由于人手手动评论过于费事，所以用了Python自动评论实现自动刷分。这里需要在PC端安装Python和全民K歌桌面版。同时安装pyautogui库。</p><h2 id="导入函数"><a href="#导入函数" class="headerlink" title="导入函数"></a>导入函数</h2><p>导入函数</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyautogui, sys </span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time </span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br></pre></td></tr></table></figure><h2 id="设置评论内容"><a href="#设置评论内容" class="headerlink" title="设置评论内容"></a>设置评论内容</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CommentList = [<span class="string">'Good!!!'</span>, <span class="string">'Nice'</span>, <span class="string">'Wonderful！！！'</span>,<span class="string">'[em]e7150[/em][em]e7150[/em][em]e7150[/em]'</span>, </span><br><span class="line"></span><br><span class="line">               <span class="string">'Name[em]e179[/em][em]e179[/em][em]e179[/em][em]e179[/em]'</span>, </span><br><span class="line"></span><br><span class="line">               <span class="string">'[em]e163[/em][em]e163[/em][em]e163[/em]'</span>, </span><br><span class="line"></span><br><span class="line">               <span class="string">'[em]e7054[/em][em]e7054[/em][em]e7054[/em][em]e7054[/em]'</span>, </span><br><span class="line"></span><br><span class="line">               <span class="string">'[em]e7038[/em][em]e7038[/em][em]e7038[/em]！！！'</span>, </span><br><span class="line"></span><br><span class="line">               <span class="string">'Good!!!Wonderful!'</span>, <span class="string">'[em]e142[/em]！！[em]e142[/em]！'</span>]</span><br></pre></td></tr></table></figure><h2 id="刷评论"><a href="#刷评论" class="headerlink" title="刷评论"></a>刷评论</h2><p>设置循环一千次刷评论。注意这里moveTo是鼠标在屏幕中的位置，可以调整。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">1000</span>): </span><br><span class="line"></span><br><span class="line">    pyautogui.moveTo( <span class="number">1200</span>, <span class="number">340</span>, <span class="number">2</span>) </span><br><span class="line">    pyautogui.click() </span><br><span class="line">    pyautogui.typewrite(CommentList[randint(<span class="number">0</span>, <span class="number">9</span>)]) </span><br><span class="line">    pyautogui.press(<span class="string">'enter'</span>) </span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br></pre></td></tr></table></figure><p>由于全民K歌不能不间断一直评论，所以加了睡眠3秒的等待时间，系统会等3秒之后继续评论。就这样，我们轻轻松松把全民K歌等级推上了17级。</p><p> <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Website/webwxgetmsgimg.jpg" height="260" width="416"></p><p>同样原理，可以实现各种刷评论功能。本方法只用于学习用途。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 自动 </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
